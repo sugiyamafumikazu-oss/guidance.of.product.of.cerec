@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>医療法人 すぎやま歯科医院様向け｜中小企業省力化投資補助金（一般型）活用ご提案書</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      overflow-x: hidden;
+    }
+    .gradient-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #0284c7 100%);
+    }
+    .card-shadow {
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+    }
+    .slide-section {
+      scroll-margin-top: 5rem;
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      .slide-section {
+        display: block !important;
+        page-break-inside: avoid;
+        margin-bottom: 1.5rem;
+      }
+      body {
+        background-color: #ffffff;
+      }
+    }
+    input[type="range"] {
+      accent-color: #0284c7;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Top Sticky Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap items-center justify-between py-3 gap-3">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-sky-600 flex items-center justify-center text-white font-bold text-lg shadow-sm">
+            歯
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-sky-100 text-sky-800">ご提案プレゼン資料</span>
+              <span class="text-xs text-slate-500">2026年11月（第9回公募対応）</span>
+            </div>
+            <h1 class="text-sm sm:text-base font-bold text-slate-900">医療法人 すぎやま歯科医院 様｜中小企業省力化投資補助金（一般型）活用計画</h1>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <div class="inline-flex rounded-lg bg-slate-100 p-1 border border-slate-200">
+            <button type="button" id="btnModeScroll" class="px-3 py-1.5 rounded-md text-xs font-semibold bg-white text-slate-900 shadow-sm transition">
+              一覧スクロール表示
+            </button>
+            <button type="button" id="btnModeSlide" class="px-3 py-1.5 rounded-md text-xs font-semibold text-slate-600 hover:text-slate-900 transition">
+              スライド集中表示
+            </button>
+          </div>
+          <button type="button" id="btnPrint" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-white hover:bg-slate-700 transition">
+            <span>印刷 / PDF化</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation Bar -->
+      <nav class="flex items-center gap-1 overflow-x-auto py-2 border-t border-slate-100 text-xs font-medium" aria-label="セクション移動">
+        <button type="button" data-target="sec-summary" class="nav-tab px-3 py-1.5 rounded-lg bg-sky-50 text-sky-700 font-semibold whitespace-nowrap transition">
+          1. 提案サマリー・結論
+        </button>
+        <button type="button" data-target="sec-simulator" class="nav-tab px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
+          2. 補助率2/3 試算シミュレーター
+        </button>
+        <button type="button" data-target="sec-requirements" class="nav-tab px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
+          3. 医療法人の対象要件・条件
+        </button>
+        <button type="button" data-target="sec-effects" class="nav-tab px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
+          4. 導入効果・省力化＆投資回収
+        </button>
+        <button type="button" data-target="sec-schedule" class="nav-tab px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
+          5. 導入時期・スケジュール
+        </button>
+        <button type="button" data-target="sec-checklist" class="nav-tab px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
+          6. 次回確認事項・アクション
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Slide Mode Controller Bar (Hidden in Scroll Mode) -->
+  <div id="slideController" class="hidden bg-slate-900 text-white py-2.5 px-4 no-print">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <button type="button" id="btnPrevSlide" class="px-3 py-1 rounded bg-slate-700 hover:bg-slate-600 text-xs font-semibold disabled:opacity-40">
+        ← 前のスライド
+      </button>
+      <div class="text-xs font-semibold tracking-wide">
+        スライド <span id="currentSlideNum">1</span> / <span id="totalSlideNum">6</span>：<span id="currentSlideTitle" class="text-sky-300">1. 提案サマリー・結論</span>
+      </div>
+      <button type="button" id="btnNextSlide" class="px-3 py-1 rounded bg-sky-600 hover:bg-sky-500 text-xs font-semibold disabled:opacity-40">
+        次のスライド →
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-10">
+
+    <!-- SECTION 1: HERO & EXECUTIVE SUMMARY -->
+    <section id="sec-summary" data-title="1. 提案サマリー・結論" class="slide-section space-y-6">
+      <div class="gradient-hero rounded-2xl p-6 sm:p-10 text-white shadow-lg relative overflow-hidden">
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 space-y-4">
+            <div class="inline-flex flex-wrap items-center gap-2">
+              <span class="px-3 py-1 rounded-full bg-amber-400 text-slate-950 text-xs font-extrabold tracking-wide">
+                歯科医療法人 対象拡大（第7回公募〜）
+              </span>
+              <span class="px-3 py-1 rounded-full bg-white/15 text-sky-100 text-xs font-medium backdrop-blur-sm">
+                エフデンタルサポート（藤田様）ご提案機器 × 補助金活用
+              </span>
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-extrabold leading-tight tracking-tight">
+              税抜 <span id="heroTotalCostText" class="text-amber-300 underline decoration-amber-400/60">1,370万円</span> の最新歯科設備を<br />
+              <span class="text-sky-300">補助率 2/3（約913万円補助）</span>で導入するご提案
+            </h2>
+            <p class="text-sm sm:text-base text-slate-200 leading-relaxed">
+              浜松市中央区蜆塚で4代にわたり地域医療を支える<strong>すぎやま歯科医院様（医療法人・常勤従業員10名未満）</strong>は、中小企業省力化投資補助金（一般型）において<strong>「常勤従業員20人以下の医療法人」として基本補助率 3分の2（2/3）</strong>が適用可能です。院内業務の抜本的な省力化と、予防歯科・丁寧なカウンセリング・高付加価値治療への時間再配分を同時に実現します。
+            </p>
+            <div class="pt-2 flex flex-wrap gap-3 text-xs text-slate-200">
+              <div class="bg-white/10 px-3 py-2 rounded-lg border border-white/15">
+                <span class="block text-slate-300">ご提案対象医院</span>
+                <a href="https://www.sugiyama-shika.info/" target="_blank" rel="noopener noreferrer" class="font-bold text-white hover:text-amber-300 underline">
+                  医療法人 すぎやま歯科医院 様（浜松市中央区蜆塚2-14-1）
+                </a>
+              </div>
+              <div class="bg-white/10 px-3 py-2 rounded-lg border border-white/15">
+                <span class="block text-slate-300">機器ご提案・導入支援</span>
+                <span class="font-bold text-white">エフデンタルサポート（担当：藤田 様）</span>
+              </div>
+              <div class="bg-white/10 px-3 py-2 rounded-lg border border-white/15">
+                <span class="block text-slate-300">補助金申請・労務伴走支援</span>
+                <a href="https://www.nexio.jp/career_design" target="_blank" rel="noopener noreferrer" class="font-bold text-white hover:text-amber-300 underline">
+                  社労士法人キャリアデザイン／行政書士キャリア法務事務所
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key KPI Cards in Hero -->
+          <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 sm:col-span-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-semibold text-sky-200 uppercase">想定補助金交付額（補助率 2/3）</span>
+                <span id="heroBadgeCapStatus" class="text-xs font-bold px-2 py-0.5 rounded bg-emerald-400/20 text-emerald-200 border border-emerald-400/30">
+                  上限枠内・満額補助対象
+                </span>
+              </div>
+              <div class="mt-1 flex items-baseline gap-2">
+                <span id="heroSubsidyAmount" class="text-3xl sm:text-4xl font-extrabold text-amber-300">913.3</span>
+                <span class="text-lg font-bold text-amber-200">万円</span>
+                <span id="heroSubsidyExact" class="text-xs text-slate-300">（申請額：9,133,000円 ※千円未満切捨）</span>
+              </div>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4">
+              <span class="text-xs font-medium text-slate-300">導入設備 見積額（税抜）</span>
+              <div class="mt-1 flex items-baseline gap-1">
+                <span id="heroEquipCost" class="text-2xl font-extrabold text-white">1,370.0</span>
+                <span class="text-sm font-semibold text-slate-200">万円</span>
+              </div>
+              <p id="heroEquipTaxNote" class="text-xs text-slate-300 mt-1">税込総額：1,507.0万円</p>
+            </div>
+
+            <div class="bg-emerald-500/20 backdrop-blur-md border border-emerald-400/40 rounded-xl p-4">
+              <span class="text-xs font-semibold text-emerald-200">医院様の実質自己負担額（税抜）</span>
+              <div class="mt-1 flex items-baseline gap-1">
+                <span id="heroNetBurden" class="text-2xl font-extrabold text-emerald-300">456.7</span>
+                <span class="text-sm font-semibold text-emerald-200">万円</span>
+              </div>
+              <p class="text-xs text-emerald-100 mt-1">約66.7%の投資負担を軽減</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Equipment Model Preset Switcher (Customizable for Meeting) -->
+      <div class="bg-white rounded-2xl p-6 card-shadow border border-slate-200">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+          <div>
+            <span class="text-xs font-bold text-sky-700 bg-sky-50 px-2.5 py-1 rounded-md">提案機器・カタログ構成の設定</span>
+            <h3 class="text-lg font-bold text-slate-900 mt-1">エフデンタルサポート（藤田様）ご提案機種の構成プリセット</h3>
+            <p class="text-xs text-slate-500">
+              商談時のカタログ内容に合わせて表示機種名・内訳をワンクリックで切り替え、または直接編集してプレゼンに反映できます。
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button type="button" data-preset="standard" class="preset-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-sky-600 text-white shadow-sm transition">
+              標準（省力化歯科設備一式 1,370万円）
+            </button>
+            <button type="button" data-preset="cerec" class="preset-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+              構成例A：CEREC 院内完結一式
+            </button>
+            <button type="button" data-preset="inlab" class="preset-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+              構成例B：inLab 5軸加工システム一式
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-4 items-center">
+          <div class="lg:col-span-5 space-y-3">
+            <div>
+              <label for="inputEquipTitle" class="block text-xs font-semibold text-slate-700 mb-1">プレゼン表示用の導入設備名（編集可）</label>
+              <input type="text" id="inputEquipTitle" value="デジタル歯科省力化設備・CAD/CAMシステム一式" class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 focus:border-sky-500 focus:outline-none font-semibold text-slate-900" />
+            </div>
+            <div>
+              <label for="inputEquipDesc" class="block text-xs font-semibold text-slate-700 mb-1">対象工程・省力化のポイント（編集可）</label>
+              <textarea id="inputEquipDesc" rows="2" class="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 focus:border-sky-500 focus:outline-none text-slate-700">印象採得〜設計〜院内加工・製作工程をデジタル連携し、手作業の模型製作・技工指示・調整時間を大幅に削減（単価50万円以上の機械装置・システム構築費）。</textarea>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs text-left border-collapse">
+                <thead>
+                  <tr class="bg-slate-50 text-slate-600 border-b border-slate-200">
+                    <th class="py-2 px-3 font-semibold">構成機器・システム項目</th>
+                    <th class="py-2 px-3 font-semibold">主な役割・省力化機能</th>
+                    <th class="py-2 px-3 font-semibold text-right">参考構成額（税抜）</th>
+                  </tr>
+                </thead>
+                <tbody id="equipBreakdownBody" class="divide-y divide-slate-100 text-slate-700">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: INTERACTIVE SUBSIDY SIMULATOR -->
+    <section id="sec-simulator" data-title="2. 補助率2/3 試算シミュレーター" class="slide-section space-y-6">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 card-shadow border border-slate-200">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-6 border-b border-slate-100">
+          <div>
+            <span class="text-xs font-bold text-sky-700 bg-sky-50 px-2.5 py-1 rounded-md">INTERACTIVE SIMULATOR</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-1">
+              投資額・従業員規模別 補助金シミュレーション
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 mt-0.5">
+              すぎやま歯科医院様の常勤従業員数（「6〜9名」または「5名以下」）や投資額に応じた補助金額・実質負担額を即座に試算できます。
+            </p>
+          </div>
+          <a href="https://shoryokuka.smrj.go.jp/ippan/about/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-600 hover:text-sky-800 underline whitespace-nowrap">
+            出典：中小企業省力化投資補助金（一般型）公式要領 ↗
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-6">
+          <!-- Controls Column -->
+          <div class="lg:col-span-6 space-y-6">
+            <!-- Cost Slider -->
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+              <div class="flex items-center justify-between">
+                <label for="sliderInvestMan" class="text-sm font-bold text-slate-800">① 設備投資額（税抜・補助対象経費）</label>
+                <div class="flex items-center gap-1">
+                  <input type="number" id="inputInvestMan" value="1370" min="100" max="5000" step="10" class="w-24 px-2 py-1 text-right text-base font-extrabold text-sky-700 bg-white border border-slate-300 rounded-md" />
+                  <span class="text-sm font-bold text-slate-700">万円</span>
+                </div>
+              </div>
+              <input type="range" id="sliderInvestMan" min="300" max="3000" step="10" value="1370" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer" />
+              <div class="flex justify-between text-xs text-slate-500">
+                <span>300万円</span>
+                <span class="font-semibold text-sky-700">提案基準：1,370万円（税込1,507万円）</span>
+                <span>3,000万円</span>
+              </div>
+            </div>
+
+            <!-- Clinic Organization & Employee Tier -->
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+              <span class="block text-sm font-bold text-slate-800">② 組織形態・常勤従業員数の区分（※役員を除く）</span>
+              <div class="grid grid-cols-1 gap-2.5">
+                <label class="flex items-start gap-3 p-3 rounded-lg bg-white border-2 border-sky-600 cursor-pointer transition" id="labelTierMed6to20">
+                  <input type="radio" name="empTier" value="med_6_20" checked class="mt-1 text-sky-600 focus:ring-sky-500" />
+                  <div class="text-xs">
+                    <div class="font-bold text-slate-900 flex items-center gap-2">
+                      <span>医療法人：常勤従業員 6〜9名（6〜20人区分）</span>
+                      <span class="px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-extrabold">推奨・メイン想定</span>
+                    </div>
+                    <p class="text-slate-600 mt-0.5">
+                      医療法人は20人以下で<strong>補助率 2/3</strong>。通常上限<strong>1,500万円</strong>のため、特例なしでも<strong>913.3万円</strong>が満額補助対象となります。
+                    </p>
+                  </div>
+                </label>
+
+                <label class="flex items-start gap-3 p-3 rounded-lg bg-white border border-slate-200 cursor-pointer transition" id="labelTierMedUnder5">
+                  <input type="radio" name="empTier" value="med_1_5" class="mt-1 text-sky-600 focus:ring-sky-500" />
+                  <div class="text-xs">
+                    <div class="font-bold text-slate-900 flex items-center gap-2">
+                      <span>医療法人：常勤従業員 1〜5名（5人以下区分）</span>
+                      <span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold">上限750万（特例1,000万）</span>
+                    </div>
+                    <p class="text-slate-600 mt-0.5">
+                      補助率は<strong>2/3</strong>ですが、通常上限は<strong>750万円</strong>。下の「大幅賃上げ特例」を併用すると上限<strong>1,000万円</strong>に拡大し、913.3万円満額受給が可能です。
+                    </p>
+                  </div>
+                </label>
+
+                <label class="flex items-start gap-3 p-3 rounded-lg bg-white border border-slate-200 cursor-pointer transition" id="labelTierIndiv6to20">
+                  <input type="radio" name="empTier" value="indiv_6_20" class="mt-1 text-sky-600 focus:ring-sky-500" />
+                  <div class="text-xs">
+                    <div class="font-bold text-slate-700 flex items-center gap-2">
+                      <span>【比較用】個人開業・株式会社：常勤 6〜9名</span>
+                      <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-semibold">原則補助率 1/2</span>
+                    </div>
+                    <p class="text-slate-500 mt-0.5">
+                      一般サービス業は5人以下のみ2/3のため、6名以上は原則1/2（685万円）。医療法人の方が<strong>約228.3万円有利</strong>です。
+                    </p>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Special Wage Hike Option -->
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-center justify-between gap-4">
+              <div class="space-y-0.5">
+                <label for="chkWageSpecial" class="text-sm font-bold text-slate-800 cursor-pointer">
+                  ③ 大幅賃上げ特例（上限額引き上げ）を適用する
+                </label>
+                <p class="text-xs text-slate-500">
+                  給与支給総額 年平均+6.0%以上 ＆ 事業場内最低賃金+50円以上で、補助上限を750万→1,000万（または1,500万→2,000万）へ上乗せ
+                </p>
+              </div>
+              <input type="checkbox" id="chkWageSpecial" class="w-5 h-5 rounded text-sky-600 focus:ring-sky-500 cursor-pointer" />
+            </div>
+          </div>
+
+          <!-- Results & Chart Column -->
+          <div class="lg:col-span-6 flex flex-col justify-between space-y-6">
+            <!-- Breakdown Box -->
+            <div class="bg-slate-900 text-white rounded-xl p-5 space-y-4">
+              <div class="flex items-center justify-between border-b border-slate-700 pb-3">
+                <div>
+                  <span class="text-xs text-slate-400 block">選択条件における試算結果</span>
+                  <h4 id="simResultHeader" class="text-base font-bold text-sky-300">医療法人（6〜20人区分）・補助率 2/3</h4>
+                </div>
+                <span id="simCapBadge" class="text-xs font-bold px-2.5 py-1 rounded bg-sky-500/20 text-sky-300 border border-sky-400/30">
+                  補助上限額：1,500万円
+                </span>
+              </div>
+
+              <div class="grid grid-cols-3 gap-3 text-center">
+                <div class="bg-slate-800/80 p-3 rounded-lg">
+                  <span class="text-xs text-slate-400 block">設備投資額（税抜）</span>
+                  <span id="simCostVal" class="text-lg sm:text-xl font-extrabold text-white mt-1 block">1,370.0万円</span>
+                  <span id="simTaxVal" class="text-[11px] text-slate-400">（税込 1,507.0万円）</span>
+                </div>
+                <div class="bg-amber-500/15 border border-amber-400/40 p-3 rounded-lg">
+                  <span class="text-xs text-amber-200 font-semibold block">補助金交付額</span>
+                  <span id="simSubsidyVal" class="text-lg sm:text-xl font-extrabold text-amber-300 mt-1 block">913.3万円</span>
+                  <span id="simRateLabel" class="text-[11px] text-amber-200">実効補助率 66.7%</span>
+                </div>
+                <div class="bg-emerald-500/15 border border-emerald-400/40 p-3 rounded-lg">
+                  <span class="text-xs text-emerald-200 font-semibold block">実質自己負担（税抜）</span>
+                  <span id="simNetVal" class="text-lg sm:text-xl font-extrabold text-emerald-300 mt-1 block">456.7万円</span>
+                  <span class="text-[11px] text-emerald-200">投資圧縮効果 大</span>
+                </div>
+              </div>
+
+              <p id="simAdviceText" class="text-xs text-slate-300 bg-slate-800 px-3 py-2 rounded-lg leading-relaxed">
+                常勤従業員数が6〜9名（役員除く）の場合、通常の補助上限額が1,500万円となるため、1,370万円×2/3＝<strong>913.3万円（9,133,000円）</strong>が上限に引っかからず満額補助対象となります。
+              </p>
+            </div>
+
+            <!-- Chart Container (Fixed Height per Web App Rule 4) -->
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+              <h4 class="text-xs font-bold text-slate-700 mb-2">費用負担構造の比較（単位：万円・税抜）</h4>
+              <div class="relative h-64 w-full">
+                <canvas id="subsidyChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: REQUIREMENTS & WHY 2/3 APPLIES -->
+    <section id="sec-requirements" data-title="3. 医療法人の対象要件・条件" class="slide-section space-y-6">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 card-shadow border border-slate-200 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-100">
+          <div>
+            <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md">REQUIREMENTS & LEGAL GROUNDS</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-1">
+              なぜ「医療法人・10名未満」で補助率 2/3 が使えるのか？（要件整理）
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 mt-0.5">
+              第7回公募から歯科医療法人が補助対象に追加され、さらに従業員数の判定基準において医療法人特有の優遇規定が設けられています。
+            </p>
+          </div>
+          <a href="https://www.sme-support.co.jp/column/p8485/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-600 hover:text-sky-800 underline whitespace-nowrap">
+            参考：歯科医療法人の対象要件・補助率解説 ↗
+          </a>
+        </div>
+
+        <!-- Comparison Table: Medical Corp vs Individual/Company -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-7 space-y-4">
+            <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-sky-600 text-white text-xs flex items-center justify-center font-bold">1</span>
+              組織形態による「補助率 2/3」適用基準の決定的な違い
+            </h3>
+            <div class="overflow-x-auto rounded-xl border border-slate-200">
+              <table class="w-full text-xs sm:text-sm text-left border-collapse">
+                <thead>
+                  <tr class="bg-slate-800 text-white">
+                    <th class="py-3 px-4 font-semibold">比較項目</th>
+                    <th class="py-3 px-4 font-semibold bg-sky-700">歯科医療法人（すぎやま歯科医院様）</th>
+                    <th class="py-3 px-4 font-semibold">個人開業・株式会社等の歯科</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200 bg-white">
+                  <tr>
+                    <td class="py-3 px-4 font-semibold text-slate-800">補助対象者の要件</td>
+                    <td class="py-3 px-4 bg-sky-50/60 font-semibold text-sky-950">
+                      医療法第44条認可の歯科医療法人<br />
+                      <span class="text-xs text-slate-600">（常勤従業員300人以下・第7回公募〜対象）</span>
+                    </td>
+                    <td class="py-3 px-4 text-slate-600">
+                      サービス業（常勤従業員100人以下 または 資本金5,000万円以下）
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 px-4 font-semibold text-slate-800">基本補助率が「2/3」になる人数基準</td>
+                    <td class="py-3 px-4 bg-sky-50/60 font-bold text-emerald-700">
+                      常勤従業員 20人以下 で「2/3」適用<br />
+                      <span class="text-xs font-normal text-slate-700">※10名未満のため無条件で基本補助率2/3に該当！</span>
+                    </td>
+                    <td class="py-3 px-4 text-slate-600">
+                      常勤従業員 <strong>5人以下</strong> のみ「2/3」<br />
+                      <span class="text-xs">（6人以上は原則 1/2 ※最賃特例時のみ2/3）</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 px-4 font-semibold text-slate-800">常勤 6〜9名の場合の補助上限額</td>
+                    <td class="py-3 px-4 bg-sky-50/60 font-bold text-sky-900">
+                      1,500万円（大幅賃上げ特例時 2,000万円）<br />
+                      <span class="text-xs font-normal text-slate-700">→ 1,370万円×2/3＝<strong>913.3万円</strong>が満額収まる</span>
+                    </td>
+                    <td class="py-3 px-4 text-slate-600">
+                      1,500万円（ただし原則補助率1/2のため685万円）
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 px-4 font-semibold text-slate-800">保険診療（診療報酬）との重複</td>
+                    <td class="py-3 px-4 bg-sky-50/60 text-slate-800" colspan="2">
+                      公的医療保険の診療報酬は「国の他の助成制度との重複」から<strong>明確に除外</strong>（保険診療中心でも申請可能）
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              ※注意点：採択後〜補助事業実施期間終了までの間に常勤従業員数が20人を超えた場合は補助率が1/2へ変更となりますが、現在10名未満であれば十分な余裕があります。また、応募時点で給与支給対象となる従業員が1名以上いることが必須です（役員である理事長・理事は常勤従業員数に含めません）。
+            </p>
+          </div>
+
+          <!-- Mandatory 5 Requirements Box -->
+          <div class="lg:col-span-5 space-y-4">
+            <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-sky-600 text-white text-xs flex items-center justify-center font-bold">2</span>
+              申請に必要な「基本要件」（3〜5年事業計画）
+            </h3>
+            <div class="space-y-3">
+              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-extrabold text-sky-800 bg-sky-100 px-2 py-0.5 rounded">必須要件 ①</span>
+                  <span class="text-xs font-bold text-slate-500">未達時の返還免除規定あり</span>
+                </div>
+                <h4 class="text-sm font-bold text-slate-900 mt-1">労働生産性の年平均成長率（CAGR）+4.0%以上</h4>
+                <p class="text-xs text-slate-600 mt-0.5">
+                  算定式：（営業利益＋人件費＋減価償却費）÷ 労働者数。設備導入による外注費削減・自費収入増・時間創出で達成を計画します。
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-amber-50/60 border border-amber-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-extrabold text-amber-900 bg-amber-200 px-2 py-0.5 rounded">必須要件 ②（最重要・返還要件あり）</span>
+                  <span class="text-xs font-bold text-amber-800">従業員への目標表明が必要</span>
+                </div>
+                <h4 class="text-sm font-bold text-slate-900 mt-1">1人当たり給与支給総額の年平均成長率 +3.5%以上</h4>
+                <p class="text-xs text-slate-700 mt-0.5">
+                  基準年度と比較し年平均+3.5%以上の賃上げ計画策定が必須。第8回・第9回公募では<strong>「足下の賃上げ（直近決算期〜基準年度の賃上げ）」</strong>も審査で重視されます。
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-extrabold text-sky-800 bg-sky-100 px-2 py-0.5 rounded">必須要件 ③（返還要件あり）</span>
+                  <span class="text-xs font-bold text-slate-500">毎年判定</span>
+                </div>
+                <h4 class="text-sm font-bold text-slate-900 mt-1">事業場内最低賃金が「静岡県最低賃金＋30円以上」</h4>
+                <p class="text-xs text-slate-600 mt-0.5">
+                  事業計画期間中（3〜5年）毎年、パート・アルバイトを含む最も低い時給が地域別最低賃金+30円（大幅賃上げ特例時は+50円）以上であること。
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-extrabold text-sky-800 bg-sky-100 px-2 py-0.5 rounded">必須要件 ④・⑤</span>
+                  <span class="text-xs font-bold text-slate-500">審査の核心</span>
+                </div>
+                <h4 class="text-sm font-bold text-slate-900 mt-1">「省力化指数」「投資回収期間」と高付加価値化ストーリー</h4>
+                <p class="text-xs text-slate-600 mt-0.5">
+                  単なる機器購入ではなく、「複数工程のデジタル連携でどれだけ作業時間が減り（省力化指数）、浮いた時間をどう高付加価値診療・賃上げに繋げるか」を定量的に示します。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: LABOR-SAVING EFFECTS & ROI SIMULATION -->
+    <section id="sec-effects" data-title="4. 導入効果・省力化＆投資回収" class="slide-section space-y-6">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 card-shadow border border-slate-200 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-100">
+          <div>
+            <span class="text-xs font-bold text-sky-700 bg-sky-50 px-2.5 py-1 rounded-md">LABOR-SAVING & ROI IMPACT</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-1">
+              すぎやま歯科医院様における「3つの導入効果」と投資回収シミュレーション
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 mt-0.5">
+              すぎやま歯科医院様の強み（院内技工室・丁寧な事前説明・予防歯科・19時までの診療体制）と直結する省力化・収益向上モデルです。
+            </p>
+          </div>
+          <a href="https://planbase.co.jp/column/shoryokuka-kojin-clinic/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-600 hover:text-sky-800 underline whitespace-nowrap">
+            参考：歯科医院における省力化投資の評価ポイント ↗
+          </a>
+        </div>
+
+        <!-- 3 Pillar Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div class="p-5 rounded-xl bg-gradient-to-b from-sky-50/70 to-white border border-sky-100 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-extrabold text-sky-700 uppercase">EFFECT 01｜業務時間削減（省力化指数）</span>
+              <span class="text-xs font-bold px-2 py-0.5 rounded bg-sky-100 text-sky-800">1症例 30〜60分削減</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900">アナログ印象・模型・外注管理の自動化</h3>
+            <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4 leading-relaxed">
+              <li>印象採得（15分→光学スキャン5分）と石膏注入・模型作製の手作業を廃止</li>
+              <li>技工指示書作成・梱包発送・受取検収（10〜15分）をデータ連携でゼロ化</li>
+              <li>平日19時までの診療後の片付け・残業負担を軽減し、スタッフの働きやすさを向上</li>
+            </ul>
+          </div>
+
+          <div class="p-5 rounded-xl bg-gradient-to-b from-emerald-50/70 to-white border border-emerald-100 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-extrabold text-emerald-700 uppercase">EFFECT 02｜時間の再配分と付加価値向上</span>
+              <span class="text-xs font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">当院の強みを最大化</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900">「事前説明・予防歯科・院内技工」の高度化</h3>
+            <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4 leading-relaxed">
+              <li>創出した時間を、貴院が重視する<strong>「丁寧な事前説明・女性スタッフのカウンセリング」</strong>へ再配分</li>
+              <li>3Dビジュアル説明により、自費セラミック治療・ホワイトニング・インプラント相談の受容性が向上</li>
+              <li>既存の<strong>「院内技工室」</strong>をデジタルワークフロー化し、外注技工費削減と短納期・即日治療を実現</li>
+            </ul>
+          </div>
+
+          <div class="p-5 rounded-xl bg-gradient-to-b from-amber-50/70 to-white border border-amber-100 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-extrabold text-amber-800 uppercase">EFFECT 03｜賃上げ原資確保と人材定着</span>
+              <span class="text-xs font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-900">年率+3.5%賃上げ達成</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900">粗利改善による継続的な処遇改善サイクル</h3>
+            <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4 leading-relaxed">
+              <li>外注技工費の内製化（粗利率向上）＋通院回数削減によるユニット回転率・新患枠の拡大</li>
+              <li>補助金により初期投資の2/3（約913万円）を圧縮し、早期の投資回収を実現</li>
+              <li>増益分を歯科衛生士・助手・受付スタッフの<strong>賃上げ原資（年+3.5%以上）</strong>へ還元し採用・定着を強化</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Interactive Time & ROI Calculator -->
+        <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+          <h3 class="text-sm font-bold text-slate-900 mb-4">
+            事業計画書用「省力化効果（作業時間削減）＆ 投資回収期間」インタラクティブ試算
+          </h3>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-5 space-y-4">
+              <div>
+                <div class="flex justify-between text-xs font-semibold text-slate-700 mb-1">
+                  <label for="sliderCasesPerMonth">月間の対象症例数（スキャン・補綴等）</label>
+                  <span class="text-sky-700 font-bold"><span id="valCasesPerMonth">35</span> 症例 / 月</span>
+                </div>
+                <input type="range" id="sliderCasesPerMonth" min="10" max="100" step="5" value="35" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer" />
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-semibold text-slate-700 mb-1">
+                  <label for="sliderMinSaved">1症例あたりの削減作業時間（従来90分→導入後）</label>
+                  <span class="text-sky-700 font-bold"><span id="valMinSaved">45</span> 分削減 / 症例</span>
+                </div>
+                <input type="range" id="sliderMinSaved" min="15" max="75" step="5" value="45" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer" />
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-semibold text-slate-700 mb-1">
+                  <label for="sliderProfitPerCase">1症例あたりの粗利改善・外注費削減効果</label>
+                  <span class="text-sky-700 font-bold"><span id="valProfitPerCase">1.8</span> 万円 / 症例</span>
+                </div>
+                <input type="range" id="sliderProfitPerCase" min="0.5" max="5.0" step="0.1" value="1.8" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer" />
+              </div>
+
+              <div class="grid grid-cols-3 gap-2 pt-2">
+                <div class="bg-white p-2.5 rounded-lg border border-slate-200 text-center">
+                  <span class="text-[11px] text-slate-500 block">年間削減時間</span>
+                  <span id="roiHoursSaved" class="text-base font-extrabold text-sky-700">315時間</span>
+                  <span id="roiLaborIndex" class="text-[10px] text-emerald-700 font-semibold block">工程時間 ▲50%</span>
+                </div>
+                <div class="bg-white p-2.5 rounded-lg border border-slate-200 text-center">
+                  <span class="text-[11px] text-slate-500 block">年間収益改善額</span>
+                  <span id="roiAnnualGain" class="text-base font-extrabold text-emerald-700">+756万円</span>
+                  <span class="text-[10px] text-slate-500 block">外注削減＋自費増</span>
+                </div>
+                <div class="bg-white p-2.5 rounded-lg border border-slate-200 text-center">
+                  <span class="text-[11px] text-slate-500 block">実質負担 回収期間</span>
+                  <span id="roiPaybackYears" class="text-base font-extrabold text-amber-600">約0.6年</span>
+                  <span id="roiPaybackNoSub" class="text-[10px] text-slate-400 block">（補助なし1.8年）</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 bg-white p-4 rounded-xl border border-slate-200">
+              <h4 class="text-xs font-bold text-slate-700 mb-2">5年間の累積キャッシュフローと実質自己負担額の回収推移（単位：万円）</h4>
+              <div class="relative h-60 w-full">
+                <canvas id="roiChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: IMPLEMENTATION SCHEDULE -->
+    <section id="sec-schedule" data-title="5. 導入時期・スケジュール" class="slide-section space-y-6">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 card-shadow border border-slate-200 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-100">
+          <div>
+            <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-md">TIMELINE & SCHEDULE（2026年11月4日 第9回公募開始）</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-1">
+              導入時期と申請〜稼働・入金までの全体スケジュール
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 mt-0.5">
+              本日（2026年11月4日）より第9回公募が開始されました。12月下旬の申請締切に向け、今から準備を開始することで2027年春〜初夏の機器導入が可能です。
+            </p>
+          </div>
+          <a href="https://shoryokuka.smrj.go.jp/ippan/schedule/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-600 hover:text-sky-800 underline whitespace-nowrap">
+            出典：一般型 公式スケジュール ↗
+          </a>
+        </div>
+
+        <!-- Critical Warning Banner -->
+        <div class="bg-rose-50 border-l-4 border-rose-600 p-4 rounded-r-xl flex items-start gap-3">
+          <div class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">!</div>
+          <div class="text-xs text-rose-950 space-y-1">
+            <p class="font-bold text-sm">【最重要ルール】機器の発注・契約・納品・支払いは必ず「交付決定後」に行います</p>
+            <p class="text-rose-800">
+              採択発表（交付候補者決定）の段階ではまだ発注できません。採択後の「交付申請」を経て事務局から<strong>「交付決定通知書」が届いた日以降</strong>にエフデンタルサポート様へ正式発注・契約を行う必要があります（事前発注は補助対象外となります）。
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Steps -->
+        <div class="grid grid-cols-1 md:grid-cols-6 gap-4">
+          <div class="p-4 rounded-xl bg-sky-50 border-2 border-sky-500 relative">
+            <span class="text-[11px] font-extrabold text-sky-800 bg-sky-200 px-2 py-0.5 rounded">STEP 1｜現在〜12月上旬</span>
+            <h4 class="text-sm font-bold text-slate-900 mt-2">事前準備・計画策定</h4>
+            <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+              ・<strong>GビズIDプライム</strong>取得（未取得なら最優先）<br />
+              ・現状の業務時間計測<br />
+              ・見積書・カタログ精査<br />
+              ・事業計画書作成
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+            <span class="text-[11px] font-bold text-slate-700 bg-slate-200 px-2 py-0.5 rounded">STEP 2｜2026年12月</span>
+            <h4 class="text-sm font-bold text-slate-900 mt-2">第9回 応募申請</h4>
+            <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+              ・12月上旬：受付開始<br />
+              ・<strong>12月下旬：公募締切</strong><br />
+              ・診療所開設許可書・決算書2期分等を添付し電子申請（＋口頭審査）
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+            <span class="text-[11px] font-bold text-slate-700 bg-slate-200 px-2 py-0.5 rounded">STEP 3｜2027年3〜4月頃</span>
+            <h4 class="text-sm font-bold text-slate-900 mt-2">採択発表・交付申請</h4>
+            <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+              ・補助金交付候補者として採択発表<br />
+              ・相見積書や経費明細の精査を受け、正式な「交付申請」を実施
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-emerald-50 border-2 border-emerald-500">
+            <span class="text-[11px] font-extrabold text-emerald-900 bg-emerald-200 px-2 py-0.5 rounded">STEP 4｜2027年5〜6月頃</span>
+            <h4 class="text-sm font-bold text-slate-900 mt-2">交付決定・正式発注</h4>
+            <p class="text-xs text-slate-700 mt-1 leading-relaxed">
+              ・<strong>交付決定通知の受領</strong><br />
+              ・エフデンタルサポート様へ機器の正式発注・契約締結
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-emerald-50/60 border border-emerald-300">
+            <span class="text-[11px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">STEP 5｜2027年6月〜夏頃</span>
+            <h4 class="text-sm font-bold text-slate-900 mt-2">機器導入・稼働開始</h4>
+            <p class="text-xs text-slate-700 mt-1 leading-relaxed">
+              ・<strong>院内への搬入・据付</strong><br />
+              ・操作研修・院内ワークフロー確立<br />
+              ・検収・代金のお支払い（一旦立替払）
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-amber-50 border border-amber-300">
+            <span class="text-[11px] font-bold text-amber-900 bg-amber-200 px-2 py-0.5 rounded">STEP 6｜稼働後〜秋頃</span>
+            <h4 class="text-sm font-bold text-slate-900 mt-2">実績報告・補助金入金</h4>
+            <p class="text-xs text-slate-700 mt-1 leading-relaxed">
+              ・実績報告書提出＆現地調査（事務局確認）<br />
+              ・補助金額確定<br />
+              ・<strong>補助金（約913.3万円）の精算払入金</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: ACTION CHECKLIST & COPY MEMO -->
+    <section id="sec-checklist" data-title="6. 次回確認事項・アクション" class="slide-section space-y-6">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 card-shadow border border-slate-200 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+          <div>
+            <span class="text-xs font-bold text-sky-700 bg-sky-50 px-2.5 py-1 rounded-md">MEETING CHECKLIST</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-1">
+              すぎやま歯科医院様・藤田様との初回確認チェックリスト
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 mt-0.5">
+              打ち合わせ時に確認が取れた項目にチェックを入れると、進捗率と「確認済みメモ」をワンクリックでコピーできます。
+            </p>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="text-xs font-bold text-slate-700 bg-slate-100 px-3 py-1.5 rounded-lg">
+              確認進捗：<span id="checkProgressText" class="text-sky-600">0 / 7</span> 完了
+            </div>
+            <button type="button" id="btnCopySummary" class="px-4 py-2 rounded-lg text-xs font-bold bg-sky-600 text-white hover:bg-sky-500 shadow-sm transition">
+              試算＆確認内容をクリップボードにコピー
+            </button>
+          </div>
+        </div>
+
+        <div id="copyToast" class="hidden bg-emerald-600 text-white text-xs font-bold px-4 py-2.5 rounded-lg">
+          プレゼン試算結果と確認チェックリストをクリップボードにコピーしました！
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="checklistContainer">
+          <label class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer hover:bg-slate-100/80 transition">
+            <input type="checkbox" class="check-item mt-1 w-4 h-4 rounded text-sky-600" data-label="常勤従業員数の正確な人数確認（6〜9名か、5名以下か ※役員除く）" />
+            <div class="text-xs">
+              <span class="font-bold text-slate-900 block">1. 常勤従業員数の正確な人数確認（※理事長・理事等の役員を除く）</span>
+              <span class="text-slate-600">6〜9名なら通常上限1,500万円で913.3万円満額対象。5名以下なら上限750万円（大幅賃上げ特例で1,000万円）。</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer hover:bg-slate-100/80 transition">
+            <input type="checkbox" class="check-item mt-1 w-4 h-4 rounded text-sky-600" data-label="GビズIDプライムアカウントの取得状況確認" />
+            <div class="text-xs">
+              <span class="font-bold text-slate-900 block">2. GビズIDプライムアカウントの取得状況</span>
+              <span class="text-slate-600">電子申請に必須。未取得の場合は発行に2〜3週間を要するため、11月中に最優先で申請手続きを実施。</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer hover:bg-slate-100/80 transition">
+            <input type="checkbox" class="check-item mt-1 w-4 h-4 rounded text-sky-600" data-label="医療法人の開設認可書類（診療所開設許可書・開設届）の控え確認" />
+            <div class="text-xs">
+              <span class="font-bold text-slate-900 block">3. 医療法第44条認可・診療所開設許可書／開設届（副本・写し）の確認</span>
+              <span class="text-slate-600">歯科医療法人として申請する際の固有添付書類。直近2期分の確定申告書・決算書とあわせて準備。</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer hover:bg-slate-100/80 transition">
+            <input type="checkbox" class="check-item mt-1 w-4 h-4 rounded text-sky-600" data-label="直近決算期〜現在の賃上げ状況（足下の賃上げ）と最低賃金（静岡県最賃+30円以上）の確認" />
+            <div class="text-xs">
+              <span class="font-bold text-slate-900 block">4. 賃金台帳の確認（足下の賃上げ状況 ＆ 事業場内最低賃金+30円以上）</span>
+              <span class="text-slate-600">1人当たり給与支給総額 年率+3.5%以上の計画およびパート含む最低時給水準を社労士視点で精査。</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer hover:bg-slate-100/80 transition">
+            <input type="checkbox" class="check-item mt-1 w-4 h-4 rounded text-sky-600" data-label="導入機器の正式見積書・相見積書およびカタログ仕様の確定（税抜1,370万円の内訳精査）" />
+            <div class="text-xs">
+              <span class="font-bold text-slate-900 block">5. エフデンタルサポート様 見積内訳・相見積書・補助対象外品目の有無確認</span>
+              <span class="text-slate-600">税抜1,370万円のうち汎用PCや消耗品等の対象外品目がないか精査し、機械装置・システム構築費として整理。</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer hover:bg-slate-100/80 transition">
+            <input type="checkbox" class="check-item mt-1 w-4 h-4 rounded text-sky-600" data-label="院内対象業務（印象採得・模型・技工連携等）の現状作業時間の計測" />
+            <div class="text-xs">
+              <span class="font-bold text-slate-900 block">6. 導入前後の作業時間比較（「省力化指数」算出根拠の作成）</span>
+              <span class="text-slate-600">1症例あたりの現状作業時間と導入後の削減時間を実測・メーカー資料に基づき数値化。</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer hover:bg-slate-100/80 transition md:col-span-2">
+            <input type="checkbox" class="check-item mt-1 w-4 h-4 rounded text-sky-600" data-label="資金調達計画（一時立替資金または金融機関借入・確認書）の確認" />
+            <div class="text-xs">
+              <span class="font-bold text-slate-900 block">7. 資金調達計画（自己資金または金融機関からの借入・金融機関確認書の要否）</span>
+              <span class="text-slate-600">補助金は事業完了後の精算払いのため、一時的に税込1,507万円（税抜1,370万円）を支払う資金計画を確認。借入を活用する場合は金融機関による事業計画確認書を手配。</span>
+            </div>
+          </label>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-6 px-4 border-t border-slate-800 mt-12">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <p class="font-bold text-slate-200">社会保険労務士法人キャリアデザイン ／ 行政書士キャリア法務事務所（代表：杉山 史和）</p>
+        <p class="mt-0.5">〒411-0035 静岡県三島市大宮町三丁目2番12号 ｜ 共同提案：エフデンタルサポート（担当：藤田 様）</p>
+      </div>
+      <div class="text-right">
+        <p>※本資料は2026年11月時点の中小企業省力化投資補助金（一般型）公募要領に基づき作成した試算資料です。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Presets Data
+    const EQUIP_PRESETS = {
+      standard: {
+        title: "デジタル歯科省力化設備・CAD/CAMシステム一式",
+        cost: 1370,
+        desc: "印象採得〜設計〜院内加工・製作工程をデジタル連携し、手作業の模型製作・技工指示・調整時間を大幅に削減（単価50万円以上の機械装置・システム構築費）。",
+        items: [
+          { name: "光学印象・デジタルスキャンシステム一式", role: "印象採得の高速デジタル化・石膏模型レス化", price: "約 240〜260 万円" },
+          { name: "自動ミリング・CAD/CAM加工ユニット一式", role: "補綴物の自動切削加工・院内技工の省力化", price: "約 650〜680 万円" },
+          { name: "専用CAD設計ソフトウェア・ワークステーション", role: "AI支援設計・データ一元管理連携", price: "約 220 万円" },
+          { name: "高速焼結・焼成ファーネス＆専用集塵機構", role: "ジルコニア等の院内自動焼結・即日完結化", price: "約 230〜240 万円" },
+          { name: "合計（エフデンタルサポート様 ご提案一式）", role: "院内一貫デジタル省力化ワークフロー構築", price: "税抜 1,370.0 万円" }
+        ]
+      },
+      cerec: {
+        title: "デンツプライシロナ CEREC 院内完結デジタルワークフロー一式",
+        cost: 1370,
+        desc: "Primescan Connect＋CEREC Primemill（4モーター高速加工機）＋SpeedFire等を連携し、スキャンから設計・切削・焼結までを院内1日で完結。",
+        items: [
+          { name: "プライムスキャン コネクト（Primescan Connect）", role: "高精度・高速3D光学印象スキャナー", price: "約 240.0 万円" },
+          { name: "CEREC Primemill（4モーター高速ミリングマシン）", role: "ジルコニア約5分切削・自動加工", price: "約 650.0 万円" },
+          { name: "CEREC SW V5.3 ＋ CAD/CAM WorkStation", role: "AI自動設計支援ソフトウェア＆専用制御機", price: "約 220.0 万円" },
+          { name: "セレック スピードファイア ＋ 専用サクション等", role: "高速焼結・グレージング炉＆集塵・設置構成", price: "約 260.0 万円" },
+          { name: "合計（エフデンタルサポート様 ご提案一式）", role: "One Visit Treatment（即日補綴）省力化体制", price: "税抜 1,370.0 万円" }
+        ]
+      },
+      inlab: {
+        title: "デンツプライシロナ inLab MC X5 ＋ デジタルスキャン連携一式",
+        cost: 1370,
+        desc: "5軸制御・自動ツールチェンジャー（ATC）搭載のinLab MC X5を核に、すぎやま歯科医院様の「院内技工室」を無人連続稼働対応へ高度化。",
+        items: [
+          { name: "inLab MC X5（5軸制御ミリングマシン）", role: "5軸一発加工・ATC自動バー交換・夜間無人稼働", price: "構成内訳に含む" },
+          { name: "デジタルスキャナー（口腔内／卓上 inEos X5等）", role: "高精度スキャン・STLオープンデータ連携", price: "構成内訳に含む" },
+          { name: "CAD/CAM設計ソフトウェア＆シンタリング炉一式", role: "複雑補綴設計・多素材（ジルコニア/PMMA）焼結", price: "構成内訳に含む" },
+          { name: "合計（エフデンタルサポート様 ご提案一式）", role: "院内技工室の自動化・外注比率の大幅削減", price: "税抜 1,370.0 万円" }
+        ]
+      }
+    };
+
+    // State
+    const state = {
+      investMan: 1370,
+      empTier: "med_6_20", // 'med_6_20' | 'med_1_5' | 'indiv_6_20'
+      wageSpecial: false,
+      casesPerMonth: 35,
+      minSaved: 45,
+      profitPerCase: 1.8,
+      viewMode: "scroll", // 'scroll' | 'slide'
+      currentSlideIndex: 0
+    };
+
+    let subsidyChartInstance = null;
+    let roiChartInstance = null;
+
+    function formatMan(val) {
+      return Number(val).toLocaleString("ja-JP", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    }
+
+    function calculateSubsidy() {
+      const invest = state.investMan;
+      const taxIncluded = invest * 1.1;
+      let rate = 2 / 3;
+      let cap = 1500;
+      let tierTitle = "医療法人（常勤 6〜20人区分）・補助率 2/3";
+      let advice = "";
+
+      if (state.empTier === "med_6_20") {
+        rate = 2 / 3;
+        cap = state.wageSpecial ? 2000 : 1500;
+        tierTitle = "医療法人（常勤 6〜20人区分）・補助率 2/3";
+      } else if (state.empTier === "med_1_5") {
+        rate = 2 / 3;
+        cap = state.wageSpecial ? 1000 : 750;
+        tierTitle = "医療法人（常勤 5人以下区分）・補助率 2/3";
+      } else {
+        rate = 1 / 2;
+        cap = state.wageSpecial ? 2000 : 1500;
+        tierTitle = "【比較】個人・会社（常勤 6〜20人）・原則補助率 1/2";
+      }
+
+      const rawSubsidyYen = Math.floor((invest * 10000 * rate) / 1000) * 1000;
+      const capYen = cap * 10000;
+      const finalSubsidyYen = Math.min(rawSubsidyYen, capYen);
+      const subsidyMan = finalSubsidyYen / 10000;
+      const netBurdenMan = invest - subsidyMan;
+      const effectiveRate = invest > 0 ? ((subsidyMan / invest) * 100).toFixed(1) : "0.0";
+      const isCapped = rawSubsidyYen > capYen;
+
+      if (state.empTier === "med_6_20") {
+        if (!isCapped) {
+          advice = `常勤従業員数が6〜9名（役員除く）の場合、通常の補助上限額が1,500万円となるため、税抜${formatMan(invest)}万円×2/3＝約${formatMan(subsidyMan)}万円（${finalSubsidyYen.toLocaleString()}円）が上限に当たらず満額補助対象となります。`;
+        } else {
+          advice = `算定額（${formatMan(rawSubsidyYen / 10000)}万円）が補助上限額（${cap.toLocaleString()}万円）を超えるため、上限の${cap.toLocaleString()}万円が交付額となります。`;
+        }
+      } else if (state.empTier === "med_1_5") {
+        if (isCapped && !state.wageSpecial) {
+          advice = `常勤従業員5人以下の場合、通常上限は750万円となるため交付額は750万円で頭打ちになります。「③ 大幅賃上げ特例」にチェックを入れると上限が1,000万円に引き上がり、約${formatMan(rawSubsidyYen / 10000)}万円の満額受給が可能になります。`;
+        } else {
+          advice = `大幅賃上げ特例（上限1,000万円）の適用により、5人以下区分でも税抜${formatMan(invest)}万円×2/3＝約${formatMan(subsidyMan)}万円（${finalSubsidyYen.toLocaleString()}円）が満額補助対象となります。`;
+        }
+      } else {
+        const medSubsidyMan = Math.min(Math.floor((invest * 10000 * (2 / 3)) / 1000) * 1000, 15000000) / 10000;
+        const diffMan = medSubsidyMan - subsidyMan;
+        advice = `個人開業や株式会社（6名以上）では原則補助率1/2（${formatMan(subsidyMan)}万円）ですが、すぎやま歯科医院様は「医療法人」であるため補助率2/3が使え、約${formatMan(diffMan)}万円多く補助金を受給できます。`;
+      }
+
+      return {
+        invest,
+        taxIncluded,
+        subsidyMan,
+        finalSubsidyYen,
+        netBurdenMan,
+        cap,
+        effectiveRate,
+        isCapped,
+        tierTitle,
+        advice
+      };
+    }
+
+    function renderEquipPreset(presetKey) {
+      const preset = EQUIP_PRESETS[presetKey];
+      if (!preset) return;
+      document.getElementById("inputEquipTitle").value = preset.title;
+      document.getElementById("inputEquipDesc").value = preset.desc;
+      const tbody = document.getElementById("equipBreakdownBody");
+      tbody.innerHTML = preset.items.map((item, idx) => {
+        const isLast = idx === preset.items.length - 1;
+        return `<tr class="${isLast ? 'bg-sky-50/70 font-bold text-slate-900' : ''}">
+          <td class="py-2 px-3">${item.name}</td>
+          <td class="py-2 px-3 text-slate-600">${item.role}</td>
+          <td class="py-2 px-3 text-right font-semibold ${isLast ? 'text-sky-700' : ''}">${item.price}</td>
+        </tr>`;
+      }).join("");
+
+      document.querySelectorAll(".preset-btn").forEach(btn => {
+        if (btn.dataset.preset === presetKey) {
+          btn.className = "preset-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-sky-600 text-white shadow-sm transition";
+        } else {
+          btn.className = "preset-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition";
+        }
+      });
+    }
+
+    function updateUI() {
+      const res = calculateSubsidy();
+
+      // Update Hero
+      document.getElementById("heroTotalCostText").textContent = `${ res.invest.toLocaleString() }万円`;
+      document.getElementById("heroSubsidyAmount").textContent = formatMan(res.subsidyMan);
+      document.getElementById("heroSubsidyExact").textContent = `（申請額：${res.finalSubsidyYen.toLocaleString()}円 ※千円未満切捨）`;
+      document.getElementById("heroEquipCost").textContent = formatMan(res.invest);
+      document.getElementById("heroEquipTaxNote").textContent = `税込総額：${formatMan(res.taxIncluded)}万円`;
+      document.getElementById("heroNetBurden").textContent = formatMan(res.netBurdenMan);
+
+      const heroBadge = document.getElementById("heroBadgeCapStatus");
+      if (res.isCapped) {
+        heroBadge.textContent = `上限額（${res.cap.toLocaleString()}万円）適用中`;
+        heroBadge.className = "text-xs font-bold px-2 py-0.5 rounded bg-amber-400/20 text-amber-200 border border-amber-400/30";
+      } else {
+        heroBadge.textContent = "上限枠内・満額補助対象";
+        heroBadge.className = "text-xs font-bold px-2 py-0.5 rounded bg-emerald-400/20 text-emerald-200 border border-emerald-400/30";
+      }
+
+      // Update Simulator Section
+      document.getElementById("simResultHeader").textContent = res.tierTitle;
+      document.getElementById("simCapBadge").textContent = `補助上限額：${res.cap.toLocaleString()}万円`;
+      document.getElementById("simCostVal").textContent = `${formatMan(res.invest)}万円`;
+      document.getElementById("simTaxVal").textContent = `（税込 ${formatMan(res.taxIncluded)}万円）`;
+      document.getElementById("simSubsidyVal").textContent = `${formatMan(res.subsidyMan)}万円`;
+      document.getElementById("simRateLabel").textContent = `実効補助率 ${res.effectiveRate}%`;
+      document.getElementById("simNetVal").textContent = `${formatMan(res.netBurdenMan)}万円`;
+      document.getElementById("simAdviceText").innerHTML = res.advice;
+
+      // Radio styling
+      const radioMap = {
+        med_6_20: "labelTierMed6to20",
+        med_1_5: "labelTierMedUnder5",
+        indiv_6_20: "labelTierIndiv6to20"
+      };
+      Object.entries(radioMap).forEach(([key, id]) => {
+        const el = document.getElementById(id);
+        if (state.empTier === key) {
+          el.className = "flex items-start gap-3 p-3 rounded-lg bg-sky-50/40 border-2 border-sky-600 cursor-pointer transition";
+        } else {
+          el.className = "flex items-start gap-3 p-3 rounded-lg bg-white border border-slate-200 cursor-pointer transition";
+        }
+      });
+
+      // Update ROI Section
+      document.getElementById("valCasesPerMonth").textContent = state.casesPerMonth;
+      document.getElementById("valMinSaved").textContent = state.minSaved;
+      document.getElementById("valProfitPerCase").textContent = state.profitPerCase.toFixed(1);
+
+      const annualHoursSaved = Math.round((state.casesPerMonth * state.minSaved * 12) / 60);
+      const laborReductionPct = Math.round((state.minSaved / 90) * 100);
+      const annualGainMan = Math.round(state.casesPerMonth * state.profitPerCase * 12);
+      const paybackWithSub = annualGainMan > 0 ? (res.netBurdenMan / annualGainMan).toFixed(1) : "-";
+      const paybackNoSub = annualGainMan > 0 ? (res.invest / annualGainMan).toFixed(1) : "-";
+
+      document.getElementById("roiHoursSaved").textContent = `${annualHoursSaved}時間/年`;
+      document.getElementById("roiLaborIndex").textContent = `工程時間 ▲${laborReductionPct}%削減`;
+      document.getElementById("roiAnnualGain").textContent = `+${annualGainMan.toLocaleString()}万円/年`;
+      document.getElementById("roiPaybackYears").textContent = `約${paybackWithSub}年`;
+      document.getElementById("roiPaybackNoSub").textContent = `（補助なし 約${paybackNoSub}年）`;
+
+      updateCharts(res, annualGainMan);
+    }
+
+    function updateCharts(res, annualGainMan) {
+      if (typeof Chart === "undefined") return;
+
+      // 1. Subsidy Bar Chart
+      const ctxSub = document.getElementById("subsidyChart").getContext("2d");
+      const halfSubsidy = Math.min(res.invest * 0.5, 1500);
+      const halfNet = res.invest - halfSubsidy;
+
+      const subData = {
+        labels: ["補助金なし（全額自己負担）", "一般1/2補助（比較）", "今回の提案（医療法人 2/3）"],
+        datasets: [
+          {
+            label: "実質自己負担額（税抜・万円）",
+            data: [res.invest, Number(halfNet.toFixed(1)), Number(res.netBurdenMan.toFixed(1))],
+            backgroundColor: ["#64748b", "#0284c7", "#10b981"],
+            borderRadius: 6
+          },
+          {
+            label: "補助金交付額（万円）",
+            data: [0, Number(halfSubsidy.toFixed(1)), Number(res.subsidyMan.toFixed(1))],
+            backgroundColor: ["#cbd5e1", "#bae6fd", "#fbbf24"],
+            borderRadius: 6
+          }
+        ]
+      };
+
+      if (subsidyChartInstance) {
+        subsidyChartInstance.data = subData;
+        subsidyChartInstance.update();
+      } else {
+        subsidyChartInstance = new Chart(ctxSub, {
+          type: "bar",
+          data: subData,
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: { stacked: true },
+              y: {
+                stacked: true,
+                beginAtZero: true,
+                title: { display: true, text: "金額（万円）" }
+              }
+            },
+            plugins: {
+              legend: { position: "bottom" }
+            }
+          }
+        });
+      }
+
+      // 2. ROI Line Chart
+      const ctxRoi = document.getElementById("roiChart").getContext("2d");
+      const years = ["導入時", "1年目", "2年目", "3年目", "4年目", "5年目"];
+      const withSubSeries = [0, 1, 2, 3, 4, 5].map(y => Math.round(y * annualGainMan - res.netBurdenMan));
+      const noSubSeries = [0, 1, 2, 3, 4, 5].map(y => Math.round(y * annualGainMan - res.invest));
+
+      const roiData = {
+        labels: years,
+        datasets: [
+          {
+            label: "補助金2/3活用時の累積収支（万円）",
+            data: withSubSeries,
+            borderColor: "#10b981",
+            backgroundColor: "rgba(16, 185, 129, 0.12)",
+            borderWidth: 3,
+            fill: true,
+            tension: 0.25
+          },
+          {
+            label: "補助金なしの場合の累積収支（万円）",
+            data: noSubSeries,
+            borderColor: "#94a3b8",
+            borderDash: [5, 5],
+            borderWidth: 2,
+            fill: false,
+            tension: 0.25
+          }
+        ]
+      };
+
+      if (roiChartInstance) {
+        roiChartInstance.data = roiData;
+        roiChartInstance.update();
+      } else {
+        roiChartInstance = new Chart(ctxRoi, {
+          type: "line",
+          data: roiData,
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                title: { display: true, text: "累積収支（万円）" }
+              }
+            },
+            plugins: {
+              legend: { position: "bottom" }
+            }
+          }
+        });
+      }
+    }
+
+    function updateSlideModeUI() {
+      const sections = Array.from(document.querySelectorAll(".slide-section"));
+      const controller = document.getElementById("slideController");
+      const btnScroll = document.getElementById("btnModeScroll");
+      const btnSlide = document.getElementById("btnModeSlide");
+
+      if (state.viewMode === "slide") {
+        controller.classList.remove("hidden");
+        btnSlide.className = "px-3 py-1.5 rounded-md text-xs font-semibold bg-white text-slate-900 shadow-sm transition";
+        btnScroll.className = "px-3 py-1.5 rounded-md text-xs font-semibold text-slate-600 hover:text-slate-900 transition";
+
+        sections.forEach((sec, idx) => {
+          if (idx === state.currentSlideIndex) {
+            sec.classList.remove("hidden");
+          } else {
+            sec.classList.add("hidden");
+          }
+        });
+
+        document.getElementById("currentSlideNum").textContent = state.currentSlideIndex + 1;
+        document.getElementById("totalSlideNum").textContent = sections.length;
+        document.getElementById("currentSlideTitle").textContent = sections[state.currentSlideIndex].dataset.title || "";
+        document.getElementById("btnPrevSlide").disabled = state.currentSlideIndex === 0;
+        document.getElementById("btnNextSlide").disabled = state.currentSlideIndex === sections.length - 1;
+      } else {
+        controller.classList.add("hidden");
+        btnScroll.className = "px-3 py-1.5 rounded-md text-xs font-semibold bg-white text-slate-900 shadow-sm transition";
+        btnSlide.className = "px-3 py-1.5 rounded-md text-xs font-semibold text-slate-600 hover:text-slate-900 transition";
+        sections.forEach(sec => sec.classList.remove("hidden"));
+      }
+
+      // Highlight active nav tab
+      document.querySelectorAll(".nav-tab").forEach((tab, idx) => {
+        if (idx === state.currentSlideIndex && state.viewMode === "slide") {
+          tab.className = "nav-tab px-3 py-1.5 rounded-lg bg-sky-50 text-sky-700 font-semibold whitespace-nowrap transition";
+        } else {
+          tab.className = "nav-tab px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100 whitespace-nowrap transition";
+        }
+      });
+
+      if (subsidyChartInstance) subsidyChartInstance.resize();
+      if (roiChartInstance) roiChartInstance.resize();
+    }
+
+    function updateCheckProgress() {
+      const checks = Array.from(document.querySelectorAll(".check-item"));
+      const done = checks.filter(c => c.checked).length;
+      document.getElementById("checkProgressText").textContent = `${done} / ${checks.length}`;
+    }
+
+    function copySummaryToClipboard() {
+      const res = calculateSubsidy();
+      const equipTitle = document.getElementById("inputEquipTitle").value;
+      const checks = Array.from(document.querySelectorAll(".check-item"));
+      const checkLines = checks.map(c => `${c.checked ? "[x]" : "[ ]"} ${c.dataset.label}`).join("\n");
+
+      const text = [
+        "【医療法人 すぎやま歯科医院様｜中小企業省力化投資補助金（一般型）試算メモ】",
+        `・導入検討機器：${equipTitle}（エフデンタルサポート 藤田様ご提案）`,
+        `・設備投資額（税抜）：${formatMan(res.invest)}万円（税込 ${formatMan(res.taxIncluded)}万円）`,
+        `・適用区分：${res.tierTitle}（補助上限額：${res.cap.toLocaleString()}万円）`,
+        `・想定補助金交付額：${formatMan(res.subsidyMan)}万円（申請額：${res.finalSubsidyYen.toLocaleString()}円）`,
+        `・実質自己負担額（税抜）：${formatMan(res.netBurdenMan)}万円`,
+        `・目標スケジュール：第9回公募（2026年12月下旬締切）→ 2027年春〜初夏 交付決定・導入`,
+        "",
+        "【初回確認チェックリスト】",
+        checkLines
+      ].join("\n");
+
+      const showToast = () => {
+        const toast = document.getElementById("copyToast");
+        toast.classList.remove("hidden");
+        setTimeout(() => toast.classList.add("hidden"), 3500);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(showToast).catch(() => {
+          fallbackCopy(text, showToast);
+        });
+      } else {
+        fallbackCopy(text, showToast);
+      }
+    }
+
+    function fallbackCopy(text, callback) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+      } catch (e) {}
+      document.body.removeChild(ta);
+      callback();
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderEquipPreset("standard");
+      updateUI();
+
+      // Preset buttons
+      document.querySelectorAll(".preset-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          renderEquipPreset(btn.dataset.preset);
+        });
+      });
+
+      // Invest slider & input sync
+      const sliderInvest = document.getElementById("sliderInvestMan");
+      const inputInvest = document.getElementById("inputInvestMan");
+
+      sliderInvest.addEventListener("input", e => {
+        state.investMan = Number(e.target.value) || 0;
+        inputInvest.value = state.investMan;
+        updateUI();
+      });
+
+      inputInvest.addEventListener("input", e => {
+        const val = Math.max(0, Math.min(10000, Number(e.target.value) || 0));
+        state.investMan = val;
+        sliderInvest.value = Math.min(3000, Math.max(300, val));
+        updateUI();
+      });
+
+      // Tier radio
+      document.querySelectorAll('input[name="empTier"]').forEach(radio => {
+        radio.addEventListener("change", e => {
+          state.empTier = e.target.value;
+          updateUI();
+        });
+      });
+
+      // Wage special checkbox
+      document.getElementById("chkWageSpecial").addEventListener("change", e => {
+        state.wageSpecial = e.target.checked;
+        updateUI();
+      });
+
+      // ROI Sliders
+      document.getElementById("sliderCasesPerMonth").addEventListener("input", e => {
+        state.casesPerMonth = Number(e.target.value);
+        updateUI();
+      });
+      document.getElementById("sliderMinSaved").addEventListener("input", e => {
+        state.minSaved = Number(e.target.value);
+        updateUI();
+      });
+      document.getElementById("sliderProfitPerCase").addEventListener("input", e => {
+        state.profitPerCase = Number(e.target.value);
+        updateUI();
+      });
+
+      // Mode Toggles
+      document.getElementById("btnModeScroll").addEventListener("click", () => {
+        state.viewMode = "scroll";
+        updateSlideModeUI();
+      });
+      document.getElementById("btnModeSlide").addEventListener("click", () => {
+        state.viewMode = "slide";
+        updateSlideModeUI();
+      });
+
+      // Slide Prev / Next
+      document.getElementById("btnPrevSlide").addEventListener("click", () => {
+        if (state.currentSlideIndex > 0) {
+          state.currentSlideIndex -= 1;
+          updateSlideModeUI();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      });
+      document.getElementById("btnNextSlide").addEventListener("click", () => {
+        const total = document.querySelectorAll(".slide-section").length;
+        if (state.currentSlideIndex < total - 1) {
+          state.currentSlideIndex += 1;
+          updateSlideModeUI();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      });
+
+      // Navigation Tabs
+      document.querySelectorAll(".nav-tab").forEach((tab, idx) => {
+        tab.addEventListener("click", () => {
+          const targetId = tab.dataset.target;
+          state.currentSlideIndex = idx;
+          if (state.viewMode === "slide") {
+            updateSlideModeUI();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          } else {
+            const targetEl = document.getElementById(targetId);
+            if (targetEl) {
+              targetEl.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        });
+      });
+
+      // Print button
+      document.getElementById("btnPrint").addEventListener("click", () => {
+        window.print();
+      });
+
+      // Checklist items
+      document.querySelectorAll(".check-item").forEach(chk => {
+        chk.addEventListener("change", updateCheckProgress);
+      });
+
+      // Copy Summary
+      document.getElementById("btnCopySummary").addEventListener("click", copySummaryToClipboard);
+    });
+  </script>
+</body>
+</html>
